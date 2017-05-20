@@ -1,16 +1,29 @@
 *** Settings ***
 Library         Selenium2Library
-Library         OperatingSystem
+
 
 *** Variables ***
-${BROWSER}  Chrome
 ${locator-en}  /eng
 
 *** Test Cases ***
-FireRobot Test Case
+ENG Button Test - Chrome
+    [Setup]  Open Browser   http://www.wsb.pl/   Chrome
     [Teardown]  Close All Browsers
-    # Set Environment Variable    webdriver.chrome.driver    ${EXECDIR}/chromedriver
-    Open Browser   http://www.wsb.pl/   ${BROWSER}
+
+    Check If Redirection Works After Click  http://www.wsb.pl/  ${locator-en}    http://www.wsb.pl/english/
+
+
+
+ENG Button Test - Firefox
+    [Setup]  Open Browser   http://www.wsb.pl/   Firefox
+    [Teardown]  Close All Browsers
+
+    Check If Redirection Works After Click  http://www.wsb.pl/  ${locator-en}    http://www.wsb.pl/english/
+
+
+*** Keywords ***
+Check If Redirection Works After Click
+    [Arguments]  ${first_link}  ${second_link}  ${button_locator}
     Location Should be  http://www.wsb.pl/
-    Click Link  ${locator-en}
+    Click Link  ${button_locator}
     Location Should be  http://www.wsb.pl/english/
