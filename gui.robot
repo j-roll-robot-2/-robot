@@ -10,7 +10,7 @@ ENG Button Test - Chrome
     [Setup]  Open Browser   http://www.wsb.pl/   Chrome
     [Teardown]  Close All Browsers
 
-    Check If Redirection Works After Click  http://www.wsb.pl/  ${locator-en}    http://www.wsb.pl/english/
+    Check If Redirection Works After Click  http://www.wsb.pl/  http://www.wsb.pl/english/  ${locator-en}    
 
 
 
@@ -18,7 +18,7 @@ ENG Button Test - Firefox
     [Setup]  Open Browser   http://www.wsb.pl/   Firefox
     [Teardown]  Close All Browsers
 
-    Check If Redirection Works After Click  http://www.wsb.pl/  ${locator-en}    http://www.wsb.pl/english/
+    Check If Redirection Works After Click  http://www.wsb.pl/   http://www.wsb.pl/english/  ${locator-en}
 
 
 *** Keywords ***
